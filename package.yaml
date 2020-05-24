@@ -1,0 +1,64 @@
+<<: !include "./hpack/module.yaml"
+
+<<: *meta
+name:                lorentz-contract
+version:             0.1.0
+github:              "sophia-gold/lorentz-contract"
+license:             BSD3
+author:              "Sophia Gold"
+maintainer:          "sophiagoldnyc@gmail.com"
+copyright:           "2020 Sophia Gold"
+
+extra-source-files:
+- README.md
+
+description: "example lorentz contract"
+
+library:
+  <<: *lorentz-lib-common
+
+  dependencies:
+    - data-default
+    - fmt
+    - morley
+    - lorentz
+    - morley-prelude
+    - morley-ledgers
+    - named
+    - singletons
+    - text
+    - vinyl
+    - cryptonite
+    - bytestring
+    - aeson
+    - constraints
+    - binary
+    - optparse-applicative
+    - transformers
+    - first-class-families < 0.8.0.0
+    - megaparsec
+  ghc-options:
+    - -Wno-missing-export-lists
+    - -Wno-unused-do-bind
+
+executables:
+  lorentz-contract:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wno-missing-export-lists
+    - -Wno-unused-do-bind
+    dependencies:
+    - lorentz-contract
+    - optparse-applicative
+    - morley
+    - lorentz
+    - named
+    - text
+    - morley-prelude
+    - singletons
+    - ansi-wl-pprint
+    - containers

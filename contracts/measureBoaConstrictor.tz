@@ -1,0 +1,20 @@
+parameter (or (or :method %measureBoaConstrictor unit
+                                                 (or unit
+                                                     unit))
+              (unit %zero));
+storage nat;
+code { CAST (pair (or (or unit (or unit unit)) unit) nat);
+       DUP;
+       CAR;
+       DIP { CDR };
+       DIP { DROP };
+       IF_LEFT { IF_LEFT { DROP;
+                           PUSH nat 38 }
+                         { IF_LEFT { DROP;
+                                     PUSH nat 31 }
+                                   { DROP;
+                                     PUSH nat 9 } } }
+               { DROP;
+                 PUSH nat 0 };
+       NIL operation;
+       PAIR };

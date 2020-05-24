@@ -1,0 +1,10 @@
+dist
+.stack-work
+db.json
+.DS_Store
+TAGS
+
+# hpack
+**/*.cabal
+**/*~
+**/*#*
